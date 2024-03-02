@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora</title>
+    <link rel="stylesheet" href="calculadora.css">
+</head>
+<body>
+    <div class="calculadora">
+        <input type="text" id="entrada" readonly>
+        <input type="text" id="resultado" readonly>
+        <div class="botones">
+            <button onclick="agregarNumero('1')" type="button">1</button>
+            <button onclick="agregarNumero('2')" type="button">2</button>
+            <button onclick="agregarNumero('3')" type="button">3</button>
+            <button onclick="agregarOperador('+')" type="button">+</button>
+            <button onclick="agregarNumero('4')" type="button">4</button>
+            <button onclick="agregarNumero('5')" type="button">5</button>
+            <button onclick="agregarNumero('6')" type="button">6</button>
+            <button onclick="agregarOperador('-')" type="button">-</button>
+            <button onclick="agregarNumero('7')" type="button">7</button>
+            <button onclick="agregarNumero('8')" type="button">8</button>
+            <button onclick="agregarNumero('9')" type="button">9</button>
+            <button onclick="agregarOperador('*')" type="button">*</button>
+            <button onclick="limpiarDisplay()" type="button">C</button>
+            <button onclick="agregarNumero('0')" type="button">0</button>
+            <button onclick="calcular()" type="button">=</button>
+            <button onclick="agregarOperador('/')" type="button">/</button>
+        </div>
+    </div>
+
+    <script>
+        let entrada = document.getElementById('entrada');
+        let resultado = document.getElementById('resultado');
+
+        function agregarNumero(num) {
+            entrada.value += num;
+        }
+
+        function agregarOperador(operador) {
+            entrada.value += operador;
+        }
+
+        function limpiarDisplay() {
+            entrada.value = '';
+            resultado.value = '';
+        }
+
+        function calcular() {
+            try {
+                resultado.value = eval(entrada.value);
+            } catch (error) {
+                resultado.value = 'Error';
+            }
+        }
+    </script>
+</body>
+</html>
